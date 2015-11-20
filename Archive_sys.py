@@ -17,8 +17,8 @@ def entryFolder(name):
     except:
         print "This folder doesn't exist"
 
-def returnFoder():
-    if mount != os.getcwd()
+def returnFolder():
+    if mount != os.getcwd():
         os.chdir('..')
     else:
         print "No puedes salir del sistema de archivos"
@@ -126,14 +126,17 @@ while (r != 'q'):
     print("\t-- Comandos: To be added, h: Para ayuda --")
     r = raw_input(": ")
     if(r == 'h'):
-        print("\t\tdir_map: Muestra contenido del directorio\n"
-              + "\t\tar_c: Crea un archivo\n"
-              + "\t\tar_r: Muestra contenido de un archivo\n"
-              + "\t\tar_w: Escribe en un archivo (Sobre escribe contenido\n"
-              + "\t\tar_r: Muestra el contenido de un archivo\n"
-              + "\t\tdir_c: Crea una carpeta en el directorio que se esta trabajando, si se toma archivo se debe especificar\n"
-              + "\t\tmove: Mueve un archivo o carpeta a un directorio destino, si el primer parametro es un archivo se debe agregar extension\n"
-              + "\t\tq: Salir del sistema\n")
+        print(  "\t\tdir_map:   Muestra contenido del directorio\n"
+              + "\t\tar_c:      Crea un archivo\n"
+              + "\t\tar_r:      Muestra contenido de un archivo\n"
+              + "\t\tar_w:      Escribe en un archivo (Sobre escribe contenido\n"
+              + "\t\tar_r:      Muestra el contenido de un archivo\n"
+              + "\t\tdir_c:     Crea una carpeta en el directorio que se esta trabajando, si se toma archivo se debe especificar\n"
+              + "\t\tdir_en:    Entre a la carpeta que se encuentra en el directorio actual\n"
+              + "\t\tar_dl:     Borra un archivo existente \n"
+              + "\t\tdir_ret:   Permite regresar por los directorios hasta llegar al base\n'"
+              + "\t\tmove:      Mueve un archivo o carpeta a un directorio destino, si el primer parametro es un archivo se debe agregar extension\n"
+              + "\t\tq:         Salir del sistema\n")
         raw_input("Press Enter to continue...")
     elif(r == 'ar_c'):
         # Llamada a funcion con raw_input como valor que se espera en el teclado, espero no te nortee. :P
@@ -151,11 +154,20 @@ while (r != 'q'):
     elif(r == 'dir_c'):
         dir_c(raw_input("Nombre de la carpeta: "))
         raw_input("Press Enter to continue...")
+    elif(r == 'dir_en'):
+        entryFolder(raw_input("Nombre de la carpeta: "))
+        raw_input("Press Enter to continue...")
     elif(r == 'ar_sk'):
         ar_sk(raw_input("Nombre del archivo: ")+'.txt', int(raw_input("Desplazamiento: ")))# Se puede hacer esto? pasar dos argumentos uno leido despues de otro?
         raw_input("Press Enter to continue...")
+    elif(r == 'ar_dl'):
+        deleteFile(raw_input("Nombre del archivo: ")+'.txt')
+        raw_input("Press Enter to continue...")
     elif(r == 'move'):
         move(raw_input("Fuente(Si es archivo especifica extension): "), raw_input("Destino: "))
+        raw_input("Press Enter to continue...")
+    elif(r == 'dir_ret'):
+        returnFolder()
         raw_input("Press Enter to continue...")
     else:
         if r == 'q':
@@ -164,4 +176,3 @@ while (r != 'q'):
             print("Comando invalido\n")
 subprocess.call(['tree','-X','-o', str(date.strftime('%Y|%m l%d %H;%M;%S')) +'_master.txt'])
 print("Exiting...")
-
