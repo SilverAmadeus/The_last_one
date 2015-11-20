@@ -30,13 +30,9 @@ def ar_r(name):
 def deleteFile(name):
 	os.remove(name) #name is a string
 
-<<<<<<< HEAD
-
-=======
-	
 def dir_map():
 	subprocess.call(['tree'])	
->>>>>>> origin/master
+	origin/master
 
 r = 0
 print("\n\n\t\t.:: Sistema de Archivos ::.\n")
