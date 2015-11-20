@@ -23,6 +23,11 @@ def returnFolder():
     else:
         print "No puedes salir del sistema de archivos"
 
+def deteleFolder(name):
+    try: 
+        shutil.rmtree(name)
+    except:
+        print "This folder doesn't exist"   
 
 def dir_c(name):
     os.mkdir(name)
