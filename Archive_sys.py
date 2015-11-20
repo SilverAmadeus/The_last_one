@@ -1,4 +1,5 @@
 import os
+import os.path #por si las dudas ahorita que fluya mas veo si es necesaria o no
 import subprocess 
 import sys
 
@@ -18,10 +19,13 @@ def ar_c(name):
 
 def ar_r(name):
 	try:
-		arch = open("name", "r") #DEFINIMOS QUE LO PASE CON O SIN EXTENSION?
-		for line in archivo.readlines():
-    	print line
-    	arch.close()
+		if os.path.isfile(archivo):
+			arch = open("name", "r") #DEFINIMOS QUE LO PASE CON O SIN EXTENSION?
+			for line in archivo.readlines():
+    			print line
+    		arch.close()
+		else:
+			print "El fichero no existe"
 	except:
 		print('Something went wrong! Cant tell what?')
 
