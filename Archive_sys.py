@@ -7,6 +7,7 @@ def manejoZIP():
 	subprocess.call(['tree','-X','-Q','-o','master.txt'])
 
 #This is it...
+#FOR FILES
 def ar_c(name):
 	try:
 		file = open(name,'a')
@@ -15,6 +16,13 @@ def ar_c(name):
 	except:
 		print('Something went wrong! Cant tell what?')
 
+
+#FOR DIRECTORIES
+def deleteFile(name):
+	os.remove(name) #name is a string
+
+
+	
 r = 0
 print("\n\n\t\t.:: Sistema de Archivos ::.\n")
 while (r != 'q'):
