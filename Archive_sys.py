@@ -131,14 +131,15 @@ r = 0
 print("\n\n\t\t\t\t.:: Sistema de Archivos ::.\n")
 while (r != 'q'):
 
-    print("\n\t-- Comandos: dir_map   ar_c     ar_r    ar_w   dir_c    dir_en     ar_dl   dir_ret     move   --"
+    print("\n\t-- Comandos: dir_map   ar_c   ar_r   ar_w   ar_sk   dir_c   dir_en   ar_dl   dir_ret   move   --"
           "\n\n\t--\t\t\t q: Salir     h: Descripcion de los comandos                                      --")
     r = raw_input(": ")
     if(r == 'h'):
         print(  "\t\tdir_map:   Muestra contenido del directorio\n"
               + "\t\tar_c:      Crea un archivo\n"
               + "\t\tar_r:      Muestra contenido de un archivo\n"
-              + "\t\tar_w:      Escribe en un archivo (Sobre escribe contenido\n"
+              + "\t\tar_w:      Escribe en un archivo (Sobre escribe contenido)\n"
+              + "\t\tar_sk:     Reposiciona el puntero a una posición dada en bytes\n"
               + "\t\tdir_c:     Crea una carpeta en el directorio que se esta trabajando, si se toma archivo se debe especificar\n"
               + "\t\tdir_en:    Entre a la carpeta que se encuentra en el directorio actual\n"
               + "\t\tar_dl:     Borra un archivo existente \n"
