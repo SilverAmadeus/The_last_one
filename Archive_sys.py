@@ -8,6 +8,8 @@ import sys
 
 mount = os.getcwd() #carpeta de montaje
 
+#FORDIRECTORIES
+
 def manejoZIP():
     subprocess.call(['tree','-X','-Q','-o','master.txt'])
 
@@ -37,8 +39,15 @@ def move(src, dst):
         shutil.move(src, dst)
     except:
         print "Parametros erroneos"
-#This is it...
+
+def deleteFile(name):
+    os.remove(name) #name is a string
+
+def dir_map():
+    subprocess.call(['tree'])
+
 #FOR FILES
+
 def ar_c(name):
     try:
         lista = os.listdir('.') #lista de archivos en la carpeta actual
@@ -122,13 +131,6 @@ def ar_sk(name, pos): #pos is in bytes
     except:
         print "Something went wrong! Can't tell what?"
 
-
-#FORDIRECTORIES
-def deleteFile(name):
-    os.remove(name) #name is a string
-
-def dir_map():
-    subprocess.call(['tree'])
 
 r = 0
 print("\n\n\t\t\t\t.:: Sistema de Archivos ::.\n")
