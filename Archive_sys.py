@@ -15,5 +15,5 @@ while (r != 'q'):
 			+ "\t\tq: Salir del sistema\n")
 		raw_input("Press Enter to continue...")
 	elif(r != 'q'):
-		print("Comando invalido")
+		print("Comando invalido\n")
 print("Exiting...")
