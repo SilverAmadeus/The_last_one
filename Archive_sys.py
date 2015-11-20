@@ -41,10 +41,13 @@ def move(src, dst):
 #FOR FILES
 def ar_c(name):
     try:
-        f = open(name,'a')
-        f.close()
-        print("Archivo creado")
-        return True
+        lista = os.listdir('.') #lista de archivos en la carpeta actual
+        if lista.count(name)>0:
+            print "No puedes crear el mismo archivo sobre la misma carpeta"
+        else:    
+            f = open(name,'a')
+            f.close()
+            print("Archivo creado")
     except:
         print('Something went wrong! Cant tell what?')
 
