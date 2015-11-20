@@ -105,10 +105,13 @@ def ar_sk(name, pos): #pos is in bytes
             arch = open(name, "r+")
             if mode == 0: #posicionar desde el inicio USE (TO,START)
                 arch.seek(pos, mode) #De inicio hacia delante
+                arch.read(10)
             elif mode == 1:
                 arch.seek(pos, mode) #De la posicion actual hacia delante
+                arch.read(10)
             elif mode == 2:
                 arch.seek(-pos, mode) #Del final hacia atras
+                arch.read(10)
             else:
                 print("You didn't choose any right option")
         else:
