@@ -10,9 +10,18 @@ def manejoZIP():
 #FOR FILES
 def ar_c(name):
 	try:
-		file = open(name,'a')
+		file = open(name,'a') # file no es una palabra reservada amigo?
 		file.close()
 		print("Archivo creado")
+	except:
+		print('Something went wrong! Cant tell what?')
+
+def ar_r(name):
+	try:
+		arch = open("name", "r") #DEFINIMOS QUE LO PASE CON O SIN EXTENSION?
+		for line in archivo.readlines():
+    	print line
+    	arch.close()
 	except:
 		print('Something went wrong! Cant tell what?')
 
@@ -22,7 +31,7 @@ def deleteFile(name):
 	os.remove(name) #name is a string
 
 
-	
+
 r = 0
 print("\n\n\t\t.:: Sistema de Archivos ::.\n")
 while (r != 'q'):
