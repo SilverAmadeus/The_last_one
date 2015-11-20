@@ -128,7 +128,7 @@ r = 0
 print("\n\n\t\t\t\t.:: Sistema de Archivos ::.\n")
 while (r != 'q'):
 
-    print("\t-- Comandos: dir_map   ar_c     ar_r    ar_w   dir_c    dir_en     ar_dl   dir_ret     move   --"
+    print("\n\t-- Comandos: dir_map   ar_c     ar_r    ar_w   dir_c    dir_en     ar_dl   dir_ret     move   --"
           "\n\n\t--\t\t\t q: Salir     h: Descripcion de los comandos                                      --")
     r = raw_input(": ")
     if(r == 'h'):
