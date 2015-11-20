@@ -30,7 +30,13 @@ def ar_r(name):
 def deleteFile(name):
 	os.remove(name) #name is a string
 
+<<<<<<< HEAD
 
+=======
+	
+def dir_map():
+	subprocess.call(['tree'])	
+>>>>>>> origin/master
 
 r = 0
 print("\n\n\t\t.:: Sistema de Archivos ::.\n")
@@ -46,6 +52,9 @@ while (r != 'q'):
 	if(r == 'ar_c'):
 		# Llamada a funcion con raw_input como valor que se espera en el teclado, espero no te nortee. :P
 		ar_c(raw_input("Nombre del archivo: ")+'.txt') 
+
+	if r == 'dir_map':
+		dir_map()
 	elif(r != 'q'):
 		print("Comando invalido\n")
 print("Exiting...")
