@@ -71,14 +71,14 @@ def ar_sk(name,pos): #pos is in bytes
             print "Use: \n0)Start to final\n1)Now to final\n2)Final to Start\n"
             mode = raw_input(": ")+"\n"
             arch = open(name,"r+")
-                if mode == 0: #posicionar desde el inicio USE (TO,START)
-                    arch.seek(pos,mode) #De inicio hacia delante
-                elif mode ==1:
-                    arch.seek(pos,mode) #De la posicion actual hacia delante
-                elif mode ==2:
-                    arch.seek(-pos,mode) #Del final hacia atras
-                else:
-                    print("You didn't choose any right option")
+            if mode == 0: #posicionar desde el inicio USE (TO,START)
+                arch.seek(pos,mode) #De inicio hacia delante
+            elif mode ==1:
+                arch.seek(pos,mode) #De la posicion actual hacia delante
+            elif mode ==2:
+                arch.seek(-pos,mode) #Del final hacia atras
+            else:
+                print("You didn't choose any right option")
         else:
             print "El fichero no exite"
     except:
