@@ -48,8 +48,6 @@ def move(src, dst):
     except:
         print "Parametros erroneos"
 
-def deleteFile(name):
-    os.remove(name) #name is a string
 
 def dir_map():
     subprocess.call(['tree'])
@@ -68,6 +66,16 @@ def ar_c(name):
     except:
         print('Something went wrong! Cant tell what?')
 
+def deleteFile(name):
+    try:
+        alt = os.listdir('.')
+        if alt.count(name)>0:
+            os.remove(name) #name is a string
+        else:
+            print "No puedes eliminar un archivo que no existe D:"
+    except:
+        print "Something went wrong! Can't tell what?"
+
 def ar_r(name):
     try:
         if os.path.isfile(name):
@@ -82,15 +90,6 @@ def ar_r(name):
     except:
         print('Something went wrong! Cant tell what?')
 
-def ar_pos(name): #Posicion actual del puntero
-    try:
-        if os.path.isfile(name):
-            arch = open(name, "r")
-            print arch.tell()
-        else:
-            print "El fichero no existe"
-    except:
-        print('Something went wrong! Cant tell what?')
 
 def ar_w(name):
     try:
@@ -144,7 +143,7 @@ r = 0
 print("\n\n\t\t\t\t.:: Sistema de Archivos ::.\n")
 while (r != 'q'):
 
-    print("\n\t-- Comandos: dir_map   ar_c   ar_r   ar_w   ar_sk   dir_c   dir_en   ar_dl   dir_ret   move   --"
+    print("\n\t-- Comandos: dir_map   ar_c   ar_r   ar_w   ar_sk   dir_c   dir_en   ar_dl   dir_ret  dir_dl   move   --"
           "\n\n\t--\t\t\t q: Salir     h: Descripcion de los comandos                                      --")
     r = raw_input(": ")
     if(r == 'h'):
@@ -152,7 +151,7 @@ while (r != 'q'):
               + "\t\tar_c:      Crea un archivo\n"
               + "\t\tar_r:      Muestra contenido de un archivo\n"
               + "\t\tar_w:      Escribe en un archivo (Sobre escribe contenido)\n"
-              + "\t\tar_sk:     Reposiciona el puntero a una posición dada en bytes\n"
+              + "\t\tar_sk:     Reposiciona el puntero a una posicion dada en bytes\n"
               + "\t\tdir_c:     Crea una carpeta en el directorio que se esta trabajando, si se toma archivo se debe especificar\n"
               + "\t\tdir_en:    Entre a la carpeta que se encuentra en el directorio actual\n"
               + "\t\tar_dl:     Borra un archivo existente \n"
@@ -166,7 +165,7 @@ while (r != 'q'):
         ar_c(raw_input("Nombre del archivo: ")+'.txt')
         raw_input("Press Enter to continue...")
     elif(r == 'ar_r'):
-        ar_r(raw_input("Nombre del archivo: ")+'.txt')
+        ar_r(raw_input("Nombre del archivo: ")+'.txt') #checar si esto funciona si la extencion txt
         raw_input("Press Enter to continue...")
     elif(r == 'dir_map'):
         dir_map()
