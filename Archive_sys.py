@@ -4,8 +4,8 @@ import sys
 
 
 def manejoZIP():
-	zipi = subprocess.call(['tree','Q','o','master.zip'])
-	 
+	subprocess.call(['tree','-X','-Q','-o','master.txt'])
+
 
 
 #This is it...
