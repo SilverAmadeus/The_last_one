@@ -32,7 +32,15 @@ def deleteFolder(name):
         print "This folder doesn't exist"   
 
 def dir_c(name):
-    os.mkdir(name)
+    try:
+        alterna = os.listdir('.')
+        if alterna.count(name)>0:
+            print "No puedes crear una carpeta dos veces."
+        else:
+            os.mkdir(name)
+            print "Carpeta creada exitosamente."
+    except:
+        print "Something went wrong! Can't tell what?"
 
 def move(src, dst):
     try:
