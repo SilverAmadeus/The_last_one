@@ -5,7 +5,7 @@ import shutil
 import datetime
 import sys
 
-date = datetime.datetime.now()
+
 mount = os.getcwd() #carpeta de montaje
 
 def manejoZIP():
@@ -23,7 +23,7 @@ def returnFolder():
     else:
         print "No puedes salir del sistema de archivos"
 
-def deteleFolder(name):
+def deleteFolder(name):
     try: 
         shutil.rmtree(name)
     except:
@@ -125,21 +125,22 @@ def dir_map():
     subprocess.call(['tree'])
 
 r = 0
-print("\n\n\t\t.:: Sistema de Archivos ::.\n")
+print("\n\n\t\t\t\t.:: Sistema de Archivos ::.\n")
 while (r != 'q'):
 
-    print("\t-- Comandos: To be added, h: Para ayuda --")
+    print("\t-- Comandos: dir_map   ar_c     ar_r    ar_w   dir_c    dir_en     ar_dl   dir_ret     move   --"
+          "\n\n\t--\t\t\t q: Salir     h: Descripcion de los comandos                                      --")
     r = raw_input(": ")
     if(r == 'h'):
         print(  "\t\tdir_map:   Muestra contenido del directorio\n"
               + "\t\tar_c:      Crea un archivo\n"
               + "\t\tar_r:      Muestra contenido de un archivo\n"
               + "\t\tar_w:      Escribe en un archivo (Sobre escribe contenido\n"
-              + "\t\tar_r:      Muestra el contenido de un archivo\n"
               + "\t\tdir_c:     Crea una carpeta en el directorio que se esta trabajando, si se toma archivo se debe especificar\n"
               + "\t\tdir_en:    Entre a la carpeta que se encuentra en el directorio actual\n"
               + "\t\tar_dl:     Borra un archivo existente \n"
-              + "\t\tdir_ret:   Permite regresar por los directorios hasta llegar al base\n'"
+              + "\t\tdir_ret:   Permite regresar por los directorios hasta llegar al base\n"
+              + "\t\tdir_dl:    Borra una carpeta especifica junto con los contenidos\n"
               + "\t\tmove:      Mueve un archivo o carpeta a un directorio destino, si el primer parametro es un archivo se debe agregar extension\n"
               + "\t\tq:         Salir del sistema\n")
         raw_input("Press Enter to continue...")
@@ -162,6 +163,9 @@ while (r != 'q'):
     elif(r == 'dir_en'):
         entryFolder(raw_input("Nombre de la carpeta: "))
         raw_input("Press Enter to continue...")
+    elif(r == 'dir_dl'):
+        deleteFolder(raw_input("Nombre de la carpeta: "))
+        raw_input("Press Enter to continue...")
     elif(r == 'ar_sk'):
         ar_sk(raw_input("Nombre del archivo: ")+'.txt', int(raw_input("Desplazamiento: ")))# Se puede hacer esto? pasar dos argumentos uno leido despues de otro?
         raw_input("Press Enter to continue...")
@@ -179,5 +183,6 @@ while (r != 'q'):
             pass
         else:
             print("Comando invalido\n")
+date = datetime.datetime.now()
 subprocess.call(['tree','-X','-o', str(date.strftime('%Y|%m l%d %H;%M;%S')) +'_master.txt'])
 print("Exiting...")
