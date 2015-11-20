@@ -6,9 +6,15 @@ import sys
 def manejoZIP():
 	subprocess.call(['tree','-X','-Q','-o','master.txt'])
 
-
-
 #This is it...
+def ar_c(name):
+	try:
+		file = open(name,'a')
+		file.close()
+		print("Archivo creado")
+	except:
+		print('Something went wrong! Cant tell what?')
+
 r = 0
 print("\n\n\t\t.:: Sistema de Archivos ::.\n")
 while (r != 'q'):
@@ -20,6 +26,10 @@ while (r != 'q'):
 			+ "\t\tar_c: Crea un archivo\n"
 			+ "\t\tq: Salir del sistema\n")
 		raw_input("Press Enter to continue...")
+	if(r == 'ar_c'):
+		# Llamada a funcion con raw_input como valor que se espera en el teclado, espero no te nortee. :P
+		ar_c(raw_input("Nombre del archivo: ")+'.txt') 
 	elif(r != 'q'):
 		print("Comando invalido\n")
 print("Exiting...")
+
