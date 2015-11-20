@@ -22,7 +22,7 @@ def ar_r(name):
     try:
         if os.path.isfile(name):
             arch = open(name, "r") #DEFINIMOS QUE LO PASE CON TODO Y EXTENSION
-            for line in archivo.readlines():
+            for line in arch.readlines():
                 print line
             arch.close()
         else:
