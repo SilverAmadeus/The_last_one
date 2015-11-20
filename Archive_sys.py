@@ -6,6 +6,7 @@ import datetime
 import sys
 
 date = datetime.datetime.now()
+mount = os.getcwd() #carpeta de montaje
 
 def manejoZIP():
     subprocess.call(['tree','-X','-Q','-o','master.txt'])
@@ -17,7 +18,11 @@ def entryFolder(name):
         print "This folder doesn't exist"
 
 def returnFoder():
-    
+    if mount != os.getcwd()
+        os.chdir('..')
+    else:
+        print "No puedes salir del sistema de archivos"
+
 
 def dir_c(name):
     os.mkdir(name)
