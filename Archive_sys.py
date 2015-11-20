@@ -19,8 +19,8 @@ def ar_c(name):
 
 def ar_r(name):
 	try:
-		if os.path.isfile(archivo):
-			arch = open("name", "r") #DEFINIMOS QUE LO PASE CON O SIN EXTENSION?
+		if os.path.isfile(name):
+			arch = open(name, "r") #DEFINIMOS QUE LO PASE CON TODO Y EXTENSION
 			for line in archivo.readlines():
     			print line
     		arch.close()
@@ -28,6 +28,18 @@ def ar_r(name):
 			print "El fichero no existe"
 	except:
 		print('Something went wrong! Cant tell what?')
+
+def ar_pos(name): #Posicion actual del puntero
+	try:
+		if os.path.isfile(name):
+			arch = open(name, "r") 
+			print arch.tell()
+ 		else:
+ 			print "El fichero no existe"
+ 	except:
+		print('Something went wrong! Cant tell what?')
+
+
 
 
 #FOR DIRECTORIES
