@@ -10,6 +10,14 @@ date = datetime.datetime.now()
 def manejoZIP():
     subprocess.call(['tree','-X','-Q','-o','master.txt'])
 
+def entryFolder(name):
+    try:
+        os.chdir(name)
+    except:
+        print "This folder doesn't exist"
+
+def returnFoder():
+    
 
 def dir_c(name):
     os.mkdir(name)
