@@ -2,12 +2,23 @@ import os
 import os.path #por si las dudas ahorita que fluya mas veo si es necesaria o no
 import subprocess
 import shutil
+import datetime
 import sys
 
+date = datetime.datetime.now()
 
 def manejoZIP():
     subprocess.call(['tree','-X','-Q','-o','master.txt'])
 
+
+def dir_c(name):
+    os.mkdir(name)
+
+def move(src, dst):
+    try:
+        shutil.move(src, dst)
+    except:
+        print "Parametros erroneos"
 #This is it...
 #FOR FILES
 def ar_c(name):
@@ -23,8 +34,10 @@ def ar_r(name):
     try:
         if os.path.isfile(name):
             arch = open(name, "r") #DEFINIMOS QUE LO PASE CON TODO Y EXTENSION
+            print("\t-- Contenido del archivo " + name+ " --\n")
             for line in arch.readlines():
                 print line
+            print("\n\t----------------------------------\n")
             arch.close()
         else:
             print "El fichero no existe"
@@ -104,6 +117,9 @@ while (r != 'q'):
               + "\t\tar_c: Crea un archivo\n"
               + "\t\tar_r: Muestra contenido de un archivo\n"
               + "\t\tar_w: Escribe en un archivo (Sobre escribe contenido\n"
+              + "\t\tar_r: Muestra el contenido de un archivo\n"
+              + "\t\tdir_c: Crea una carpeta en el directorio que se esta trabajando, si se toma archivo se debe especificar\n"
+              + "\t\tmove: Mueve un archivo o carpeta a un directorio destino, si el primer parametro es un archivo se debe agregar extension\n"
               + "\t\tq: Salir del sistema\n")
         raw_input("Press Enter to continue...")
     elif(r == 'ar_c'):
@@ -118,9 +134,21 @@ while (r != 'q'):
         raw_input("Press Enter to continue...")
     elif(r == 'ar_w'):
         ar_w(raw_input("Nombre del archivo: ")+'.txt')
+        raw_input("Press Enter to continue...")
+    elif(r == 'dir_c'):
+        dir_c(raw_input("Nombre de la carpeta: "))
+        raw_input("Press Enter to continue...")
     elif(r == 'ar_sk'):
         ar_sk(raw_input("Nombre del archivo: ")+'.txt', int(raw_input("Desplazamiento: ")))# Se puede hacer esto? pasar dos argumentos uno leido despues de otro?
+        raw_input("Press Enter to continue...")
+    elif(r == 'move'):
+        move(raw_input("Fuente(Si es archivo especifica extension): "), raw_input("Destino: "))
+        raw_input("Press Enter to continue...")
     else:
-        print("Comando invalido\n")
+        if r == 'q':
+            pass
+        else:
+            print("Comando invalido\n")
+subprocess.call(['tree','-X','-o', str(date.strftime('%Y|%m l%d %H;%M;%S')) +'_master.txt'])
 print("Exiting...")
 
