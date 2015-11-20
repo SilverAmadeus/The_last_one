@@ -22,14 +22,13 @@ def ar_r(name):
     try:
         if os.path.isfile(name):
             arch = open(name, "r") #DEFINIMOS QUE LO PASE CON TODO Y EXTENSION
-            for line in arch.readlines():
+            for line in archivo.readlines():
                 print line
             arch.close()
         else:
-            print("El fichero no existe")
+            print "El fichero no existe"
     except:
         print('Something went wrong! Cant tell what?')
-
 
 def ar_pos(name): #Posicion actual del puntero
     try:
