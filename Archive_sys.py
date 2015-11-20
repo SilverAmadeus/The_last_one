@@ -67,6 +67,7 @@ def ar_w(name):
 def ar_sk(name,pos): #pos is in bytes
     try:
         if os.path.isfile(name):
+            int(pos)
             print "Use: \n0)Start to final\n1)Now to final\n2)Final to Start\n"
             mode = raw_input(": ")+"\n"
             arch = open(name,"r+")
@@ -116,6 +117,8 @@ while (r != 'q'):
         raw_input("Press Enter to continue...")
     elif(r == 'ar_w'):
         ar_w(raw_input("Nombre del archivo: ")+'.txt')
+    elif(r == 'ar_sk'):
+        ar_sk(raw_input("Nombre del archivo: ")+'txt',raw_input("Desplazamiento: "))# Se puede hacer esto? pasar dos argumentos uno leido despues de otro?     
     else:
         print("Comando invalido\n")
 print("Exiting...")
