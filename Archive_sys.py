@@ -2,6 +2,12 @@ import os
 import subprocess 
 import sys
 
+
+def manejoZIP():
+	zipi = subprocess.call(['tree','Q','o','master.zip'])
+	 
+
+
 #This is it...
 r = 0
 print("\n\n\t\t.:: Sistema de Archivos ::.\n")
