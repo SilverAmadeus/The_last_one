@@ -1,5 +1,4 @@
 import os
-import os.path #por si las dudas ahorita que fluya mas veo si es necesaria o no
 import subprocess
 import shutil
 import datetime
@@ -124,13 +123,16 @@ def ar_sk(name, pos): #pos is in bytes
             arch = open(name, "r+")
             if mode == 0: #posicionar desde el inicio USE (TO,START)
                 arch.seek(pos, mode) #De inicio hacia delante
-                arch.read(10)
+                cnt = arch.read(pos)
+                print cnt
             elif mode == 1:
                 arch.seek(pos, mode) #De la posicion actual hacia delante
-                arch.read(10)
+                cnt = arch.read(pos)
+                print cnt
             elif mode == 2:
                 arch.seek(-pos, mode) #Del final hacia atras
-                arch.read(10)
+                cnt = arch.read(pos)
+                print cnt
             else:
                 print("You didn't choose any right option")
         else:
@@ -151,7 +153,7 @@ while (r != 'q'):
               + "\t\tar_c:      Crea un archivo\n"
               + "\t\tar_r:      Muestra contenido de un archivo\n"
               + "\t\tar_w:      Escribe en un archivo (Sobre escribe contenido)\n"
-              + "\t\tar_sk:     Reposiciona el puntero a una posicion dada en bytes\n"
+              + "\t\tar_sk:     Reposiciona el puntero a una posicion dada en bytes mostrando los caracteres del desplazamiento\n"
               + "\t\tdir_c:     Crea una carpeta en el directorio que se esta trabajando, si se toma archivo se debe especificar\n"
               + "\t\tdir_en:    Entre a la carpeta que se encuentra en el directorio actual\n"
               + "\t\tar_dl:     Borra un archivo existente \n"
@@ -200,5 +202,10 @@ while (r != 'q'):
         else:
             print("Comando invalido\n")
 date = datetime.datetime.now()
+
+
+while not os.getcwd()==mount:
+    os.chdir('..')
+
 subprocess.call(['tree','-X','-o', str(date.strftime('%Y|%m l%d %H;%M;%S')) +'_master.txt'])
 print("Exiting...")
